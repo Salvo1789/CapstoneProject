@@ -1,25 +1,28 @@
-package salvomercurio.NewrizonWebsite.model;
+package salvomercurio.NewrizonWebsite.entities;
 
 import java.util.UUID;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Product {
 	@Id
 	@GeneratedValue
-	protected UUID id;
-	protected String name;
-	protected double price;
-	protected int qty;
+	private UUID id;
+	private String name;
+	private double price;
+	private int qty;
 
 	public Product(String name, double price, int qty) {
 		super();
@@ -27,4 +30,5 @@ public abstract class Product {
 		this.price = price;
 		this.qty = qty;
 	}
+
 }

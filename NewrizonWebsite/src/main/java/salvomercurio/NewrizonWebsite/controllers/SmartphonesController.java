@@ -58,7 +58,7 @@ public class SmartphonesController {
 		return smartphonesService.findById(id);
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/{name}")
 	@PreAuthorize("hasAnyAuthority('USER', 'ADMIN')")
 	public Smartphone getByName(@PathVariable String name) throws Exception {
 		return smartphonesService.findByName(name);

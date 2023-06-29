@@ -3,25 +3,27 @@ package salvomercurio.NewrizonWebsite.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import salvomercurio.NewrizonWebsite.model.Product;
 
 @Entity
 @Table(name = "Smartphones")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Smartphone extends Product {
-	protected String Display;
-	protected String CPU;
-	protected int RAM;
-	protected int ROM;
-	protected String Battery;
-	protected Boolean RapidRecharge;
-	protected String Cam1;
-	protected String Cam2;
-	protected String Cam3;
-	protected String Cam4;
-	protected String OS;
+
+	private String Display;
+	private String CPU;
+	private int RAM;
+	private int ROM;
+	private String Battery;
+	private Boolean RapidRecharge;
+	private String Cam1;
+	private String Cam2;
+	private String Cam3;
+	private String Cam4;
+	private String OS;
 
 	public Smartphone(String name, double price, int qty, String display, String cPU, int rAM, int rOM, String battery,
 			Boolean rapidRecharge, String cam1, String cam2, String cam3, String cam4, String oS) {

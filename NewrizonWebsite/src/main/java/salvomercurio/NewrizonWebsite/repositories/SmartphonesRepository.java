@@ -16,7 +16,7 @@ public interface SmartphonesRepository extends JpaRepository<Smartphone, UUID> {
 
 	Optional<Smartphone> findByName(String name);
 
-	Optional<Smartphone> findById(String id);
+	Optional<Smartphone> findById(UUID id);
 
 	Page<Smartphone> findByDisplay(String display, Pageable pageable);
 
