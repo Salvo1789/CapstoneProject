@@ -34,6 +34,8 @@ public class SecurityConfig {
 
 		http.authorizeHttpRequests(auth -> auth.requestMatchers("/smartphones/**").authenticated());
 
+		http.authorizeHttpRequests(auth -> auth.requestMatchers("/accessories/**").authenticated());
+
 		http.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 		http.addFilterBefore(corsFilter, JWTAuthFilter.class);
 
