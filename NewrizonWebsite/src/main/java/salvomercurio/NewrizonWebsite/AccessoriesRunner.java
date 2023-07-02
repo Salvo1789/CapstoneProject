@@ -1,26 +1,27 @@
-package salvomercurio.NewrizonWebsite.services;
+package salvomercurio.NewrizonWebsite;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import salvomercurio.NewrizonWebsite.entities.Accessory;
 import salvomercurio.NewrizonWebsite.entities.Charger;
 import salvomercurio.NewrizonWebsite.entities.Cover;
 import salvomercurio.NewrizonWebsite.repositories.AccessoriesRepository;
 
-@Service("accessoriesServiceImpl")
-public class AccessoriesServiceImpl implements AccessoriesService {
+@Component
+public class AccessoriesRunner implements CommandLineRunner {
 
 	@Autowired
-	private AccessoriesRepository accessoriesRepo;
+	AccessoriesRepository accessoriesRepo;
 
 	@Override
-	public List<Accessory> saveAccessories(List<Accessory> accList) {
+	public void run(String... args) throws Exception {
 
-		List<Accessory> accessoriesListNew = new ArrayList<>(accList.size());
+		List<Accessory> accessoriesListNew = new ArrayList<>();
 
 		Charger mango = new Charger();
 		mango.setName("Caricabatteria USB Micro-usb Fast");
@@ -73,8 +74,8 @@ public class AccessoriesServiceImpl implements AccessoriesService {
 		accessoriesListNew.add(butterfly);
 		accessoriesListNew.add(tiger);
 
-		List<Accessory> accessoriesResponse = (List<Accessory>) accessoriesRepo.saveAll(accessoriesListNew);
-		return accessoriesResponse;
+		accessoriesRepo.saveAll(accessoriesListNew);
+
 	}
 
 }
