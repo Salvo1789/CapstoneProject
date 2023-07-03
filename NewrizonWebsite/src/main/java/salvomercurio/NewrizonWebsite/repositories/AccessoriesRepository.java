@@ -18,4 +18,5 @@ public interface AccessoriesRepository extends JpaRepository<Accessory, UUID> {
 
 	@Query("SELECT a FROM Accessory a WHERE a.price >= :price1 AND a.price <= :price2")
 	Page<Accessory> findByPriceBetween(double price1, double price2, Pageable pageable);
+
 }
