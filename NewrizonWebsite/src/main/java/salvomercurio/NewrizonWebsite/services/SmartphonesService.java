@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import salvomercurio.NewrizonWebsite.entities.Smartphone;
+import salvomercurio.NewrizonWebsite.entities.SmartphoneColor;
 import salvomercurio.NewrizonWebsite.exceptions.BadRequestException;
 import salvomercurio.NewrizonWebsite.exceptions.NotFoundException;
 import salvomercurio.NewrizonWebsite.payloads.ModifiedSmartphonePayload;
@@ -27,7 +28,7 @@ public class SmartphonesService {
 	}
 
 	public Page<Smartphone> find(int page, int size, String sortBy, String display, int ram, int rom, String os,
-			double price1, double price2) {
+			SmartphoneColor color, double price1, double price2) {
 		if (size < 0)
 			size = 10;
 		if (size > 100)
@@ -50,10 +51,11 @@ public class SmartphonesService {
 			return smartphonesRepo.findByROM(rom, pageable);
 		} else if (!os.equals("")) {
 			return smartphonesRepo.findByOS(os, pageable);
+		} else if (!color.equals("")) {
+			return smartphonesRepo.findByColor(color, pageable);
 		} else if (price1 > 0 && price2 < 1000) {
 			return smartphonesRepo.findByPriceBetween(price1, price2, pageable);
-		}
-		{
+		} else {
 			return smartphonesRepo.findAll(pageable);
 		}
 	}

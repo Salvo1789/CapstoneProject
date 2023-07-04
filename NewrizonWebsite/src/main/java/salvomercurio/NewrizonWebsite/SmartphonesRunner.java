@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import salvomercurio.NewrizonWebsite.entities.Smartphone;
+import salvomercurio.NewrizonWebsite.entities.SmartphoneColor;
 import salvomercurio.NewrizonWebsite.repositories.SmartphonesRepository;
 
 @Component
@@ -39,6 +40,27 @@ public class SmartphonesRunner implements CommandLineRunner {
 
 				Smartphone alpha = new Smartphone(name, price, qty, display, CPU, RAM, ROM, battery, RapidRecharge,
 						cam1, cam2, cam3, cam4, OS);
+				alpha.setColor(SmartphoneColor.DARK_BLACK);
+				smartphonesRepo.save(alpha);
+
+				name = "Prime X1";
+				price = 899.99;
+				qty = 300;
+				display = "QHD OLED 6,5 inch";
+				CPU = "Snapdragon 8+ Gen 2";
+				RAM = 12;
+				ROM = 256;
+				battery = "6.300 mAh";
+				RapidRecharge = true;
+				cam1 = "50 mpx grandangolare";
+				cam2 = "20 mpx ultragrandangolare";
+				cam3 = "10 mpx teleobiettivo con zoom 10x";
+				cam4 = "30 mpx con effetto bianco/nero";
+				OS = "Android 13";
+
+				alpha = new Smartphone(name, price, qty, display, CPU, RAM, ROM, battery, RapidRecharge, cam1, cam2,
+						cam3, cam4, OS);
+				alpha.setColor(SmartphoneColor.PURE_WHITE);
 				smartphonesRepo.save(alpha);
 
 				name = "Wonder S1";
@@ -57,6 +79,26 @@ public class SmartphonesRunner implements CommandLineRunner {
 
 				Smartphone beta = new Smartphone(name, price, qty, display, CPU, RAM, ROM, battery, RapidRecharge, cam1,
 						cam2, cam3, OS);
+				beta.setColor(SmartphoneColor.ASH_GREY);
+				smartphonesRepo.save(beta);
+
+				name = "Wonder S1";
+				price = 599.99;
+				qty = 500;
+				display = "FHD OLED 6,7 inch";
+				CPU = "Snapdragon 7+ Gen 2";
+				RAM = 8;
+				ROM = 256;
+				battery = "6.500 mAh";
+				RapidRecharge = true;
+				cam1 = "32 mpx grandangolare";
+				cam2 = "10 mpx ultragrandangolare";
+				cam3 = "20 mpx effetto bianco/nero";
+				OS = "Android 13";
+
+				beta = new Smartphone(name, price, qty, display, CPU, RAM, ROM, battery, RapidRecharge, cam1, cam2,
+						cam3, OS);
+				beta.setColor(SmartphoneColor.PETAL_ROSE);
 				smartphonesRepo.save(beta);
 
 				name = "Joyful M1";
@@ -74,6 +116,25 @@ public class SmartphonesRunner implements CommandLineRunner {
 
 				Smartphone gamma = new Smartphone(name, price, qty, display, CPU, RAM, ROM, battery, RapidRecharge,
 						cam1, cam2, OS);
+				gamma.setColor(SmartphoneColor.INTENSE_BLUE);
+				smartphonesRepo.save(gamma);
+
+				name = "Joyful M1";
+				price = 299.99;
+				qty = 700;
+				display = "FHD LCD 6,7 inch";
+				CPU = "Snapdragon 778";
+				RAM = 6;
+				ROM = 128;
+				battery = "7.000 mAh";
+				RapidRecharge = false;
+				cam1 = "40 mpx";
+				cam2 = "10 mpx ultragrandangolare";
+				OS = "Android 12";
+
+				gamma = new Smartphone(name, price, qty, display, CPU, RAM, ROM, battery, RapidRecharge, cam1, cam2,
+						OS);
+				gamma.setColor(SmartphoneColor.SUNNY_YELLOW);
 				smartphonesRepo.save(gamma);
 
 			} catch (Exception e) {

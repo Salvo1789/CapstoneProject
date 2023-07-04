@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import salvomercurio.NewrizonWebsite.entities.Smartphone;
+import salvomercurio.NewrizonWebsite.entities.SmartphoneColor;
 import salvomercurio.NewrizonWebsite.payloads.ModifiedSmartphonePayload;
 import salvomercurio.NewrizonWebsite.payloads.NewSmartphonePayload;
 import salvomercurio.NewrizonWebsite.services.SmartphonesService;
@@ -35,8 +36,9 @@ public class SmartphonesController {
 			@RequestParam(defaultValue = "10") int size, @RequestParam(defaultValue = "id") String sortBy,
 			@RequestParam(defaultValue = "") String display, @RequestParam(defaultValue = "0") int ram,
 			@RequestParam(defaultValue = "0") int rom, @RequestParam(defaultValue = "") String os,
-			@RequestParam(defaultValue = "0") double price1, @RequestParam(defaultValue = "1000") double price2) {
-		return smartphonesService.find(page, size, sortBy, display, ram, rom, os, price1, price2);
+			@RequestParam(defaultValue = "") SmartphoneColor color, @RequestParam(defaultValue = "0") double price1,
+			@RequestParam(defaultValue = "1000") double price2) {
+		return smartphonesService.find(page, size, sortBy, display, ram, rom, os, color, price1, price2);
 	}
 
 	@PostMapping("")
