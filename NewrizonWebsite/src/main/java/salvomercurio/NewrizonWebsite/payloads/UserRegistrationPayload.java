@@ -20,4 +20,5 @@ public class UserRegistrationPayload {
 	String name;
 	@NotNull(message = "Please insert surname")
 	String surname;
+	String creditCard;
 }

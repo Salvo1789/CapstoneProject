@@ -54,7 +54,8 @@ public class UsersService {
 		usersRepo.findByEmail(u.getEmail()).ifPresent(user -> {
 			throw new BadRequestException("Email " + user.getEmail() + " already in use!");
 		});
-		User newUser = new User(u.getUsername(), u.getEmail(), u.getPassword(), u.getName(), u.getSurname());
+		User newUser = new User(u.getUsername(), u.getEmail(), u.getPassword(), u.getName(), u.getSurname(),
+				u.getCreditCard());
 		return usersRepo.save(newUser);
 	}
 
