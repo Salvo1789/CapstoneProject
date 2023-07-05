@@ -36,8 +36,8 @@ public class SmartphonesController {
 			@RequestParam(defaultValue = "10") int size, @RequestParam(defaultValue = "id") String sortBy,
 			@RequestParam(defaultValue = "") String display, @RequestParam(defaultValue = "0") int ram,
 			@RequestParam(defaultValue = "0") int rom, @RequestParam(defaultValue = "") String os,
-			@RequestParam(defaultValue = "") SmartphoneColor color, @RequestParam(defaultValue = "0") double price1,
-			@RequestParam(defaultValue = "1000") double price2) {
+			@RequestParam(defaultValue = "PURE_WHITE") SmartphoneColor color,
+			@RequestParam(defaultValue = "0") double price1, @RequestParam(defaultValue = "1000") double price2) {
 		return smartphonesService.find(page, size, sortBy, display, ram, rom, os, color, price1, price2);
 	}
 

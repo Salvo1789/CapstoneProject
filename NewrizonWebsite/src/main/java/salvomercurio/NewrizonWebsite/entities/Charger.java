@@ -25,7 +25,7 @@ public class Charger extends Accessory {
 		this.output = output;
 		this.rapidRecharge = rapidRecharge;
 		this.power = power;
-		this.chargerColor = null;
+
 	}
 
 }

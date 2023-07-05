@@ -3,6 +3,7 @@ package salvomercurio.NewrizonWebsite.payloads;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import salvomercurio.NewrizonWebsite.entities.SmartphoneColor;
 
 @Getter
 @Setter
@@ -33,4 +34,6 @@ public class NewSmartphonePayload {
 	protected String Cam4;
 	@NotNull(message = "Please insert OS")
 	protected String OS;
+	@NotNull(message = "Please insert color")
+	protected SmartphoneColor color;
 }

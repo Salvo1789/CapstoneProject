@@ -43,7 +43,8 @@ public class Smartphone extends Product {
 		Cam3 = cam3;
 		Cam4 = cam4;
 		OS = oS;
-		this.color = null;
+		color = SmartphoneColor.PURE_WHITE;
+
 	}
 
 	public Smartphone(String name, double price, int qty, String display, String cPU, int rAM, int rOM, String battery,
@@ -60,7 +61,7 @@ public class Smartphone extends Product {
 		Cam3 = cam3;
 		Cam4 = "N/A";
 		OS = oS;
-		this.color = null;
+		color = SmartphoneColor.PURE_WHITE;
 	}
 
 	public Smartphone(String name, double price, int qty, String display, String cPU, int rAM, int rOM, String battery,
@@ -77,7 +78,7 @@ public class Smartphone extends Product {
 		Cam3 = "N/A";
 		Cam4 = "N/A";
 		OS = oS;
-		this.color = null;
+		color = SmartphoneColor.PURE_WHITE;
 	}
 
 }

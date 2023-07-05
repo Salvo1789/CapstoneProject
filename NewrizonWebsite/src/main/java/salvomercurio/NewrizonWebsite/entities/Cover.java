@@ -23,7 +23,6 @@ public class Cover extends Accessory {
 		super(name, price, qty);
 		this.material = material;
 		this.waterproof = waterproof;
-		this.coverColor = null;
 
 	}
 }

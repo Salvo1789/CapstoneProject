@@ -51,7 +51,7 @@ public class SmartphonesService {
 			return smartphonesRepo.findByROM(rom, pageable);
 		} else if (!os.equals("")) {
 			return smartphonesRepo.findByOS(os, pageable);
-		} else if (!color.equals("")) {
+		} else if (!color.equals(SmartphoneColor.PURE_WHITE)) {
 			return smartphonesRepo.findByColor(color, pageable);
 		} else if (price1 > 0 && price2 < 1000) {
 			return smartphonesRepo.findByPriceBetween(price1, price2, pageable);
@@ -81,6 +81,7 @@ public class SmartphonesService {
 		found.setCam3(found.getCam3());
 		found.setCam4(found.getCam4());
 		found.setOS(found.getOS());
+		found.setColor(found.getColor());
 		return smartphonesRepo.save(found);
 	}
 
@@ -92,6 +93,7 @@ public class SmartphonesService {
 		Smartphone newSmartphone = new Smartphone(s.getName(), s.getPrice(), s.getQty(), s.getDisplay(), s.getCPU(),
 				s.getRAM(), s.getROM(), s.getBattery(), s.getRapidRecharge(), s.getCam1(), s.getCam2(), s.getCam3(),
 				s.getCam4(), s.getOS());
+		newSmartphone.setColor(s.getColor());
 		return smartphonesRepo.save(newSmartphone);
 	}
 
