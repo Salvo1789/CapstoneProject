@@ -5,6 +5,7 @@ import NewrizonNavbar from './components/NewrizonNavbar';
 import NewrizonFooter from './components/NewrizonFooter';
 import NewrizonHomepage from "./components/NewrizonHomepage";
 import ProductSpecs from './components/ProductSpecs';
+import AccessoriesList from './components/AccessoriesList';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <NewrizonNavbar />
         <Routes>
         <Route path="/" element={<NewrizonHomepage />} />
-        <Route path="/product/:productId" element={<ProductSpecs />} />
+        <Route path="/products/:productId" element={<ProductSpecs />} />
+        <Route path="/products/accessories/:type" element={<AccessoriesList />} />
         </Routes>
         <NewrizonFooter />
       </BrowserRouter>

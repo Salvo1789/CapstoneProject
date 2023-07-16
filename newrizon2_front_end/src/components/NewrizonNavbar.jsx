@@ -16,18 +16,18 @@ function NewrizonNavbar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="Smartphone" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/product/46408488-c8d0-444d-929b-bc5a0a14d550" id="nav-item">Prime X1</NavDropdown.Item>
+              <NavDropdown.Item href="/products/efd36ada-9504-45f1-bbae-28f5b5b6878e" id="nav-item">Prime X1</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/product/06ef9495-daa8-4945-bccc-4ba0441da898" id="nav-item">
+              <NavDropdown.Item href="/products/06ef9495-daa8-4945-bccc-4ba0441da898" id="nav-item">
                 Wonder S1
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/product/d3509d27-beb1-414b-be28-36678c0b53aa" id="nav-item">Joyful M1</NavDropdown.Item>
+              <NavDropdown.Item href="/products/d3509d27-beb1-414b-be28-36678c0b53aa" id="nav-item">Joyful M1</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Accessori" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1" id="nav-item">Alimentatori</NavDropdown.Item>
+              <NavDropdown.Item href="/products/accessories/charger" id="nav-item">Alimentatori</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.2" id="nav-item">
+              <NavDropdown.Item href="/products/accessories/cover" id="nav-item">
                 Cover
               </NavDropdown.Item>
             </NavDropdown>
