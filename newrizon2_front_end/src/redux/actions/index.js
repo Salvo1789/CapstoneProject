@@ -6,27 +6,21 @@ export const USER_LOGIN = "USER_LOGIN";
 export const USER_LOGOUT = "USER_LOGOUT";
 export const USER_REGISTER = "USER_REGISTER";
 export const GET_USER_DATA = "GET_USER_DATA";
-export const logout = () => ({ type: USER_LOGOUT });
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+export const SELECT_PRODUCT = "SELECT_PRODUCT";
 
 //PRODUCTS ACTIONS
 
 export const getProductAction = (productId) => {
   return async (dispatch) => {
-    // const token = getState().auth.token;
+    
 
     const endpoint = "http://localhost:3000/products/" + productId;
-    const fetchOpt = {
-      headers: {
-        //'Bearer ' + token
-        Authorization:
-          "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzYWx2by5tZXJjdXJpb0BuZXdyaXpvbi5pdCIsImlhdCI6MTY4OTYwNTY0MywiZXhwIjoxNjkwMjEwNDQzfQ._r46KuzVyK9OZlQTaLFDHGDjZtZREtBI2crZix-H-t9R4lCBtJGE9hQby9sL-22O",
-      },
-    };
+    
     console.log(endpoint);
     try {
-      const resp = await fetch(endpoint, fetchOpt);
+      const resp = await fetch(endpoint);
       if (resp.ok) {
         const dataProduct = await resp.json();
         dispatch({ type: ADD_PRODUCT, payload: dataProduct });
@@ -41,16 +35,13 @@ export const getProductAction = (productId) => {
 
 export const getAllProductsAction = (type) => {
   return async (dispatch) => {
+    
+    
     const endpoint = "http://localhost:3000/products?type=" + type;
-    const fetchOpt = {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzYWx2by5tZXJjdXJpb0BuZXdyaXpvbi5pdCIsImlhdCI6MTY4OTYwNTY0MywiZXhwIjoxNjkwMjEwNDQzfQ._r46KuzVyK9OZlQTaLFDHGDjZtZREtBI2crZix-H-t9R4lCBtJGE9hQby9sL-22O",
-      },
-    };
+   
     console.log(endpoint);
     try {
-      const resp = await fetch(endpoint, fetchOpt);
+      const resp = await fetch(endpoint);
       if (resp.ok) {
         const dataProducts = await resp.json();
         dispatch({ type: ADD_PRODUCTS, payload: dataProducts });
@@ -62,6 +53,8 @@ export const getAllProductsAction = (type) => {
     }
   };
 };
+
+export const selectProductAction = product => ({ type: SELECT_PRODUCT, payload: product });
 
 //AUTH ACTIONS 
 
@@ -119,7 +112,7 @@ export const getUserDataAction = () => {
   return async (dispatch, getState) => {
     const token = getState().auth.token;
     try {
-      let resp = await fetch("http://localhost:3000/user/me", {
+      let resp = await fetch("http://localhost:3000/users/me", {
         //   method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -141,8 +134,25 @@ export const getUserDataAction = () => {
   };
 };
 
+export const logoutAction = () => ({ type: USER_LOGOUT });
+
 //CART ACTIONS
 
-export const addToCartAction = bookSelected => ({ type: ADD_TO_CART, payload: bookSelected });
+export const addToCartAction = productSelected => {
+  return (dispatch, getState) => {
+    const currentState = getState();
+
+    console.log(
+      "CHECK",
+      currentState.cart.content.findIndex(product => product.id === productSelected.id)
+    );
+    const checkProductInCart = currentState.cart.content.findIndex(product => product.id === productSelected.id);
+    if (checkProductInCart === -1) {
+      dispatch({ type: ADD_TO_CART, payload: productSelected });
+    } else {
+      console.log("product already avaiable on the cart");
+    }
+  };
+};
 
 export const removeFromCartAction = index => ({ type: REMOVE_FROM_CART, payload: index });

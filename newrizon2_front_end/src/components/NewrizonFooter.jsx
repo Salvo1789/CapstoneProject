@@ -10,10 +10,11 @@ import {
   
 const Footer = () => {
   return (
-    <Box>
+    <Box >
       <h5 style={{ color: "orange", 
                    textAlign: "center", 
-                   marginTop: "-50px" }}>
+                   marginTop: "-50px",
+                  }}>
         @2022 Newrizon
       </h5>
       <Container>

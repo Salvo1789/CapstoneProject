@@ -3,13 +3,13 @@ import NewrizonHomepageStyle from '../style/NewrizonHomepageStyle.css';
 
 function NewrizonHomepage(){
 return (
-    <Carousel>
+    <Carousel style={{boxSizing: "border-box"}}>
       <Carousel.Item>
         <img
           className="d-block w-100"
           src="https://gagadget.com/media/cache/2f/c3/2fc39a09dc26273c43b6a6f8e404e011.png"
           alt="First slide"
-          height="600rem"
+          height="480rem"
         />
         <Carousel.Caption>
           <h3>Prime X1</h3>
@@ -21,7 +21,7 @@ return (
           className="d-block w-100"
           src="https://images.samsung.com/is/image/samsung/assets/it/smartphones/galaxy-s22/images/galaxy-s22_highlights_kv_bora_img.jpg"
           alt="Second slide"
-          height="600rem"
+          height="480rem"
         />
 
         <Carousel.Caption>
@@ -34,7 +34,7 @@ return (
           className="d-block w-100"
           src="https://static.realme.net/v2/realme-10/images/banner/bg-7f35686c78.jpg"
           alt="Third slide"
-          height="600rem"
+          height="480rem"
         />
 
         <Carousel.Caption>

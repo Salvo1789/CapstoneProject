@@ -30,7 +30,7 @@ const Cart = () => {
                 >
                   <FaTrash />
                 </Button>
-                <img className="book-cover-small" src={product.productPic} alt="book selected" />
+                <img className="book-cover-small mx-5" src={product.productPic} alt="book selected" width="200rem" height="200rem"/>
                 {product.name}
               </ListGroup.Item>
             ))

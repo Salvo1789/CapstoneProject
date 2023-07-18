@@ -4,6 +4,7 @@ import productsReducer from "../reducers/productsReducer";
 import userReducer from "../reducers/userReducer";
 import adminReducer from "../reducers/adminReducer";
 import cartReducer from "../reducers/cartReducer";
+import productSelectedReducer from "../reducers/productSelectedReducer";
 
 import storage from "redux-persist/lib/storage";
 
@@ -24,6 +25,7 @@ const persistConfig = {
 const bigReducer = combineReducers({
   product: productReducer,
   products: productsReducer,
+  productSelected: productSelectedReducer,
   user: userReducer,
   admin: adminReducer,
   auth: authReducer,

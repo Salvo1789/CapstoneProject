@@ -1,13 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Container, Row, Col, Card, ListGroup } from 'react-bootstrap';
+import { Container, Row, Col, Card, ListGroup, Button, Alert } from 'react-bootstrap';
 import { useEffect } from "react";
 import { getProductAction } from '../redux/actions';
+import { addToCartAction } from '../redux/actions';
 
 const ProductSpecs = () => {
   const product = useSelector((state) => state.product.content);
+  const userCurrent = useSelector(state => state.auth.userData);
   const dispatch = useDispatch();
   const params = useParams();
+
 
   useEffect(() => {
     dispatch(getProductAction(params.productId));
@@ -35,6 +38,22 @@ const ProductSpecs = () => {
                 <ListGroup.Item style={{ color: "orange",border: "0" }}>{product.cam4}</ListGroup.Item>
                 <ListGroup.Item style={{ color: "orange",border: "0" }}>{product.os}</ListGroup.Item>
               </ListGroup>
+              {userCurrent ? (
+                  <Button
+                  style={{ background: "linear-gradient(orange, yellow)", border: "solid", borderRadius: "5px" }}
+                    onClick={() => {
+                      // dispatch({ type: ADD_TO_CART, payload: bookSelected });
+                      dispatch(addToCartAction(product));
+                      // sto dispatchando un'action creator
+                      // è la stessa cosa che dispatchare l'action
+                      // perchè l'action creator è una funzione che torna l'action
+                    }}
+                  >
+                    ADD TO CART
+                  </Button>
+                ) : (
+                  <Alert variant="warning">Loggati prima di procedere</Alert>
+                )}
             </Card>
           </Col>
           <Col md={6}>
