@@ -37,10 +37,11 @@ const ProductSpecs = () => {
                 <ListGroup.Item style={{ color: "orange",border: "0" }}>{product.cam3}</ListGroup.Item>
                 <ListGroup.Item style={{ color: "orange",border: "0" }}>{product.cam4}</ListGroup.Item>
                 <ListGroup.Item style={{ color: "orange",border: "0" }}>{product.os}</ListGroup.Item>
+                <ListGroup.Item style={{ color: "orange",border: "0" }}><strong>{product.price} €</strong></ListGroup.Item>
               </ListGroup>
               {userCurrent ? (
                   <Button
-                  style={{ background: "linear-gradient(orange, yellow)", border: "solid", borderRadius: "5px" }}
+                  style={{ background: "linear-gradient(orange, yellow)", color: "black", border: "solid", borderRadius: "5px" }}
                     onClick={() => {
                       // dispatch({ type: ADD_TO_CART, payload: bookSelected });
                       dispatch(addToCartAction(product));

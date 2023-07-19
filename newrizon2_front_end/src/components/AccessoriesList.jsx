@@ -38,6 +38,7 @@ const AccessoriesList = () => {
                   <ListGroup.Item style={{ color: "orange",border: "0" }}>{prod.rapidRecharge}</ListGroup.Item>
                   <ListGroup.Item style={{ color: "orange",border: "0" }}>{prod.power}</ListGroup.Item>
                   <ListGroup.Item style={{ color: "orange",border: "0" }}>{prod.chargerColor}</ListGroup.Item>
+                  <ListGroup.Item style={{ color: "orange",border: "0" }}><strong>{prod.price} €</strong></ListGroup.Item>
                   </>
                   )}
                   {prod.type === "cover" && (
@@ -45,12 +46,13 @@ const AccessoriesList = () => {
                   <ListGroup.Item style={{ color: "orange", border: "0" }}>{prod.material}</ListGroup.Item>
                   <ListGroup.Item style={{ color: "orange",border: "0" }}>{prod.waterproof}</ListGroup.Item>
                   <ListGroup.Item style={{ color: "orange",border: "0" }}>{prod.coverColor}</ListGroup.Item>
+                  <ListGroup.Item style={{ color: "orange",border: "0" }}><strong>{prod.price} €</strong></ListGroup.Item>
                   </>
                   )}
                 </ListGroup>
                 {userCurrent ? (
                   <Button
-                  style={{ background: "linear-gradient(orange, yellow)", border: "solid", borderRadius: "5px" }}
+                  style={{ background: "linear-gradient(orange, yellow)", color: "black", border: "solid", borderRadius: "5px" }}
                     onClick={() => {
                       // dispatch({ type: ADD_TO_CART, payload: bookSelected });
                       dispatch(addToCartAction(prod));

@@ -16,6 +16,7 @@ const LoginPage = () => {
       const body = { email, password };
       dispatch(loginAction(JSON.stringify(body)));
       navigate("/");
+      window.location.reload();
     };
     
     return (
