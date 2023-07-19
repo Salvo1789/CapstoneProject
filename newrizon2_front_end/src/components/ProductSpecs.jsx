@@ -53,7 +53,7 @@ const ProductSpecs = () => {
                     ADD TO CART
                   </Button>
                 ) : (
-                  <Alert variant="warning">Loggati prima di procedere</Alert>
+                  <Alert style={{ border: "solid", borderColor: "orange", backgroundColor: "black", color: "orange" }}>Loggati prima di procedere</Alert>
                 )}
             </Card>
           </Col>

@@ -11,24 +11,24 @@ function PayPalCheckout(){
     useEffect(() => {
         window.paypal
         .Buttons({
-            createOrder: (cart, actions, err) => {
+            createOrder: (data, actions, err) => {
                 return actions.order.create({
                     intent: "CAPTURE",
                     purchase_units: [
-                      cart.length > 0 && (cart.map((product) => (
+                      
                         {
-                          name:  `${product.name}`,
+                          description:  "Newrizon",
                           amount: {
-                            currency_code: "USD",
+                            currency_code: "EUR",
                             value: 
-                                `${product.price}`,
+                            cart.reduce((accumulator, currentValue) => accumulator + parseFloat(currentValue.price), 0).toFixed(2),
                           } 
                         }
-                        )))
-                    ]
+                    ],
+                    
                 });
             },
-            onApprove: async (cart, actions) => {
+            onApprove: async (data, actions) => {
                 const order = await actions.order.capture();
       
                 console.log("success", order);
@@ -36,6 +36,7 @@ function PayPalCheckout(){
               },
               onError: (err) => {
                 console.log(err);
+                console.log(cart);
                 setTransactionStatus("failure");
               },
             })

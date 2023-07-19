@@ -13,7 +13,7 @@ import ProfilePage from './components/ProfilePage';
 
 function App() {
   return (
-    <div >
+    <div style={{ background: "linear-gradient(45deg, rgba(238,142,17) 0 25%, rgba(255,255,255) 25% 50%, rgba(230,238,17) 50% 75%, rgba(255,255,255) 75% 100%)" }}>
       <BrowserRouter>
         <NewrizonNavbar />
         <Routes>
