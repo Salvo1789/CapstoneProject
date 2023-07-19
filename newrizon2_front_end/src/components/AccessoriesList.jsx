@@ -29,24 +29,24 @@ const AccessoriesList = () => {
     {products && products.content.map( (prod) => (
       <>
             <Col md={2}>
-              <Card style={{ border: "0" }} key={prod.id}>
-                <Card.Header style={{ backgroundColor: "white", border: "0" }}>{prod.name}</Card.Header>
+              <Card style={{ border: "solid", borderColor: "orange", backgroundColor: "black" }} key={prod.id}>
+                <Card.Header style={{ backgroundColor: "black", color: "white", border: "0" }}>{prod.name}</Card.Header>
                 <ListGroup variant="flush">
                   {prod.type === "charger" && (
                     <>
-                  <ListGroup.Item style={{ color: "orange", border: "0" }}>{prod.output}</ListGroup.Item>
-                  <ListGroup.Item style={{ color: "orange",border: "0" }}>{prod.rapidRecharge}</ListGroup.Item>
-                  <ListGroup.Item style={{ color: "orange",border: "0" }}>{prod.power}</ListGroup.Item>
-                  <ListGroup.Item style={{ color: "orange",border: "0" }}>{prod.chargerColor}</ListGroup.Item>
-                  <ListGroup.Item style={{ color: "orange",border: "0" }}><strong>{prod.price} €</strong></ListGroup.Item>
+                  <ListGroup.Item style={{ backgroundColor: "black", color: "orange", border: "0" }}><span className="text-light">Output: </span>{prod.output}</ListGroup.Item>
+                  <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Tecnologia RapidRecharge: </span>{prod.rapidRecharge}</ListGroup.Item>
+                  <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Potenza: </span>{prod.power}</ListGroup.Item>
+                  <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Colore: </span>{prod.chargerColor}</ListGroup.Item>
+                  <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Prezzo: </span><strong>{prod.price} €</strong></ListGroup.Item>
                   </>
                   )}
                   {prod.type === "cover" && (
                     <>
-                  <ListGroup.Item style={{ color: "orange", border: "0" }}>{prod.material}</ListGroup.Item>
-                  <ListGroup.Item style={{ color: "orange",border: "0" }}>{prod.waterproof}</ListGroup.Item>
-                  <ListGroup.Item style={{ color: "orange",border: "0" }}>{prod.coverColor}</ListGroup.Item>
-                  <ListGroup.Item style={{ color: "orange",border: "0" }}><strong>{prod.price} €</strong></ListGroup.Item>
+                  <ListGroup.Item style={{ backgroundColor: "black", color: "orange", border: "0" }}><span className="text-light">Materiale: </span>{prod.material}</ListGroup.Item>
+                  <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Resistente all'acqua: </span>{prod.waterproof}</ListGroup.Item>
+                  <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Colore: </span>{prod.coverColor}</ListGroup.Item>
+                  <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Prezzo: </span><strong>{prod.price} €</strong></ListGroup.Item>
                   </>
                   )}
                 </ListGroup>

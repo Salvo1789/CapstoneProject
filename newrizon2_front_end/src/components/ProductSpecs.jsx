@@ -23,21 +23,21 @@ const ProductSpecs = () => {
       <Container>
         <Row>
           <Col md={6}>
-            <Card style={{ border: "0" }}>
-              <Card.Header style={{ backgroundColor: "white", border: "0" }}>{product.name}</Card.Header>
-              <ListGroup variant="flush">
-                <ListGroup.Item style={{ color: "orange", border: "0" }}>{product.display}</ListGroup.Item>
-                <ListGroup.Item style={{ color: "orange",border: "0" }}>{product.cpu}</ListGroup.Item>
-                <ListGroup.Item style={{ color: "orange",border: "0" }}>{product.ram}</ListGroup.Item>
-                <ListGroup.Item style={{ color: "orange",border: "0" }}>{product.rom}</ListGroup.Item>
-                <ListGroup.Item style={{ color: "orange",border: "0" }}>{product.battery}</ListGroup.Item>
-                <ListGroup.Item style={{ color: "orange",border: "0" }}>{product.rapidRecharge}</ListGroup.Item>
-                <ListGroup.Item style={{ color: "orange",border: "0" }}>{product.cam1}</ListGroup.Item>
-                <ListGroup.Item style={{ color: "orange",border: "0" }}>{product.cam2}</ListGroup.Item>
-                <ListGroup.Item style={{ color: "orange",border: "0" }}>{product.cam3}</ListGroup.Item>
-                <ListGroup.Item style={{ color: "orange",border: "0" }}>{product.cam4}</ListGroup.Item>
-                <ListGroup.Item style={{ color: "orange",border: "0" }}>{product.os}</ListGroup.Item>
-                <ListGroup.Item style={{ color: "orange",border: "0" }}><strong>{product.price} €</strong></ListGroup.Item>
+            <Card style={{ border: "solid", borderColor: "orange", backgroundColor: "black" }}>
+              <Card.Header style={{ color: "white", border: "0" }}>{product.name}</Card.Header>
+              <ListGroup>
+                <ListGroup.Item style={{ backgroundColor: "black", color: "orange", border: "0" }}><span className="text-light">Display: </span>{product.display}</ListGroup.Item>
+                <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Processore: </span>{product.cpu}</ListGroup.Item>
+                <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">RAM: </span>{product.ram}</ListGroup.Item>
+                <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">ROM: </span>{product.rom}</ListGroup.Item>
+                <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Capacità batteria: </span>{product.battery}</ListGroup.Item>
+                <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Tecnologia RapidRecharge: </span>{product.rapidRecharge}</ListGroup.Item>
+                <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Fotocamera principale: </span>{product.cam1}</ListGroup.Item>
+                <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Fotocamera n°2: </span>{product.cam2}</ListGroup.Item>
+                <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Fotocamera n°3: </span>{product.cam3}</ListGroup.Item>
+                <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Fotocamera n°4: </span>{product.cam4}</ListGroup.Item>
+                <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Sistema operativo: </span>{product.os}</ListGroup.Item>
+                <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Prezzo di vendita: </span><strong>{product.price} €</strong></ListGroup.Item>
               </ListGroup>
               {userCurrent ? (
                   <Button
