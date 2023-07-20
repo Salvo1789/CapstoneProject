@@ -1,4 +1,4 @@
-import { Col, Row, Button, ListGroup, Alert } from "react-bootstrap";
+import { Container, Col, Row, Button, ListGroup, Alert } from "react-bootstrap";
 import { FaTrash, FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCartAction } from "../redux/actions";
@@ -13,6 +13,7 @@ const Cart = () => {
   // cart sarà l'array contenuto in state.cart.content
 
   return (
+    <Container className="vh-100" fluid>
     <Row>
       <Col sm={12} className="font-weight-bold mb-5 ms-3">
         TOTAL:{" "}
@@ -45,7 +46,7 @@ const Cart = () => {
               </ListGroup.Item>
             ))
           ) : (
-            <ListGroup.Item className="lead ">
+            <ListGroup.Item className="lead">
               <span className="text-primary opacity-50 fs-1 me-2">
                 {" "}
                 <FaShoppingCart style={{color: "orange"}} />
@@ -76,6 +77,7 @@ const Cart = () => {
           )}
       </Col>
     </Row>
+    </Container>
   );
 };
 

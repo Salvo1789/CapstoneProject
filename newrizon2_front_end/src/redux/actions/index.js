@@ -9,6 +9,7 @@ export const GET_USER_DATA = "GET_USER_DATA";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const SELECT_PRODUCT = "SELECT_PRODUCT";
+export const CREATE_ORDER = "CREATE_ORDER";
 
 //PRODUCTS ACTIONS
 
@@ -156,3 +157,30 @@ export const addToCartAction = productSelected => {
 };
 
 export const removeFromCartAction = index => ({ type: REMOVE_FROM_CART, payload: index });
+
+//ORDER ACTIONS
+
+export const createOrderAction = (body) => {
+  return async (dispatch) => {
+    try {
+      let resp = await fetch("http://localhost:3000/orders", {
+        method: "POST",
+        headers: {
+          //Authorization: AUTHORIZATION,
+          "Content-Type": "application/json",
+        },
+        body,
+      });
+      if (resp.ok) {
+        let data = await resp.json();
+        dispatch({ type: CREATE_ORDER, payload: data });
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      console.log("fetch loading finish");
+    }
+  };
+};

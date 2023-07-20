@@ -58,7 +58,7 @@ const ProductSpecs = () => {
             </Card>
           </Col>
           <Col md={6}>
-            <Card style={{ border: "0" }}>
+            <Card style={{ border: "0"}}>
               <Card.Img src={product.productPic} />
             </Card>
           </Col>

@@ -19,7 +19,7 @@ function ProfilePage(){
 
   return (
       
-      <Container className="py-5 h-100">
+      <Container className="py-5 vh-100">
         <Row className="justify-content-center align-items-center h-100">
           <Col lg="6" className="mb-4 mb-lg-0">
             <Card className="mb-3" style={{ borderRadius: '.5rem' }}>
@@ -45,7 +45,17 @@ function ProfilePage(){
                         <Card.Text className="text-muted">{userCurrent.address}</Card.Text>
                       </Col>
                     </Row>
-
+                    <hr className="mt-0 mb-4" />
+                    <Row className="pt-1">
+                    <Col size="12" className="mb-3">
+                      <h6>Ordini</h6>
+                      {userCurrent.ordersList.length > 0 ? ( userCurrent.ordersList.map((order) => (
+                          <p>Num. ordine: {order.id} <br></br> Data acquisto:{order.orderDate}<br></br>Importo: {order.totalOrderPrice}</p>
+                      ))):(
+                        <p>Nessun ordine effettuato</p>
+                      )}
+                    </Col>
+                    </Row>
                     <Button
                   style={{ background: "linear-gradient(orange, yellow)", border: "solid", borderRadius: "5px" }}
                     onClick={() => {

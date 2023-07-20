@@ -23,7 +23,7 @@ const AccessoriesList = () => {
   
   return(
     
-      <Container >
+      <Container fluid className="vh-100 m-3">
         <Row>
 
     {products && products.content.map( (prod) => (
@@ -69,7 +69,7 @@ const AccessoriesList = () => {
               </Card>
             </Col>
             <Col md={2}>
-              <Card style={{ border: "0"}}>
+              <Card style={{ border: "0", height: "15rem", width: "10rem"}}>
                 <Card.Img src={prod.productPic} />
               </Card>
             </Col>

@@ -10,7 +10,7 @@ import {
   
 const Footer = () => {
   return (
-    <Box >
+    <Box>
       <h5 style={{ color: "orange", 
                    textAlign: "center", 
                    marginTop: "-50px",
