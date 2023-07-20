@@ -11,14 +11,7 @@ import { getUserDataAction } from '../redux/actions';
 function NewrizonNavbar() {
 
   const userCurrent = useSelector(state => state.auth.userData)
-  console.log(userCurrent);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getUserDataAction());
-
-    
-  }, []);
+  
   
   return (
     <Navbar expand="lg" className="bg-body-dark">

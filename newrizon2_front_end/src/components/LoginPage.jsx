@@ -1,22 +1,40 @@
 import React, { useState } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { loginAction } from "../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getUserDataAction, loginAction } from "../redux/actions";
 
 const LoginPage = () => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const token = useSelector(state => state.auth.token);
+    const userCurrent = useSelector(state => state.auth.userData)
+
+    useEffect(() => {
+      if(token){
+      dispatch(getUserDataAction());
+      }
+      
+    }, [token]);
+
+    useEffect(() => {
+      if(userCurrent){
+      navigate("/");
+      }
+      
+    }, [userCurrent]);
   
     const handleSubmit = (e) => {
       e.preventDefault();
       console.log("Submitted:", { email, password });
       const body = { email, password };
       dispatch(loginAction(JSON.stringify(body)));
-      navigate("/");
-      window.location.reload();
+      
+      // window.location.reload();
     };
     
     return (
@@ -35,7 +53,7 @@ const LoginPage = () => {
         </Form.Group>
         <br></br>
         <br></br>
-        <Form.Group controlId="formEmail">
+        <Form.Group controlId="formPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"

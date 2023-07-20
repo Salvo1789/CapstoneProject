@@ -11,7 +11,6 @@ import storage from "redux-persist/lib/storage";
 import { persistStore, persistReducer } from "redux-persist";
 import { encryptTransform } from "redux-persist-transform-encrypt";
 import authReducer from "../reducers/authReducer";
-import orderReducer from "../reducers/orderReducer";
 
 const persistConfig = {
   key: "root",
@@ -31,7 +30,6 @@ const bigReducer = combineReducers({
   admin: adminReducer,
   auth: authReducer,
   cart: cartReducer,
-  order: orderReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, bigReducer);

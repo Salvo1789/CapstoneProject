@@ -1,8 +1,21 @@
 import Carousel from 'react-bootstrap/Carousel';
 import { Container } from "react-bootstrap";
 import NewrizonHomepageStyle from '../style/NewrizonHomepageStyle.css';
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getUserDataAction } from '../redux/actions';
 
 function NewrizonHomepage(){
+  // const userCurrent = useSelector(state => state.auth.userData)
+  // console.log(userCurrent);
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(getUserDataAction());
+    
+    
+  // }, []);
+
 return (
   <Container className='px-0'fluid>
     <Carousel>

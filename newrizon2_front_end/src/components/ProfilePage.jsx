@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getUserDataAction, logoutAction } from '../redux/actions';
+import { emptyCartAction, getUserDataAction, logoutAction } from '../redux/actions';
 import { useNavigate } from "react-router-dom";
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { FaPenSquare } from "react-icons/fa";
@@ -59,7 +59,7 @@ function ProfilePage(){
                     <Button
                   style={{ background: "linear-gradient(orange, yellow)", border: "solid", borderRadius: "5px" }}
                     onClick={() => {
-                      // dispatch({ type: ADD_TO_CART, payload: bookSelected });
+                      dispatch(emptyCartAction());
                       dispatch(logoutAction());
                       navigate("/");
                       // sto dispatchando un'action creator
