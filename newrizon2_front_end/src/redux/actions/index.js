@@ -147,11 +147,16 @@ export const addToCartAction = productSelected => {
       "CHECK",
       currentState.cart.content.findIndex(product => product.id === productSelected.id)
     );
-    const checkProductInCart = currentState.cart.content.findIndex(product => product.id === productSelected.id);
+    const checkProductInCart = currentState.cart.content.findIndex(order => order.productSelected.id === productSelected.id);
+    let quantity = 1;
     if (checkProductInCart === -1) {
-      dispatch({ type: ADD_TO_CART, payload: productSelected });
+      const order = { quantity, productSelected };
+      dispatch({ type: ADD_TO_CART, payload: order });
     } else {
-      console.log("product already avaiable on the cart");
+      quantity++;
+      const order = { quantity, productSelected };
+      dispatch({type: REMOVE_FROM_CART, payload: checkProductInCart})
+      dispatch({ type: ADD_TO_CART, payload: order });
     }
   };
 };

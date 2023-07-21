@@ -10,6 +10,7 @@ const Cart = () => {
   const userCurrent = useSelector(state => state.auth.userData)
   const cart = useSelector(state => state.cart.content);
   const dispatch = useDispatch();
+  console.log(cart);
   // cart sarà l'array contenuto in state.cart.content
 
   return (
@@ -19,7 +20,7 @@ const Cart = () => {
         TOTAL:{" "}
           {userCurrent ? (
         <span className="display-6" style={{color: "orange"}}>
-          {cart.reduce((accumulator, currentValue) => accumulator + parseFloat(currentValue.price), 0).toFixed(2)}€
+          {cart.reduce((accumulator, currentValue) => accumulator + parseFloat(currentValue.productSelected.price*currentValue.quantity), 0).toFixed(2)}€
           </span>
           ):(
             <span className="display-6" style={{color: "orange"}}>
@@ -30,7 +31,7 @@ const Cart = () => {
       <Col sm={12} className="mb-5">
         <ListGroup variant="flush">
           {cart.length > 0 && userCurrent ? (
-            cart.map((product, i) => (
+            cart.map((order, i) => (
               <ListGroup.Item key={i}>
                 <Button
                   variant="danger"
@@ -41,8 +42,9 @@ const Cart = () => {
                 >
                   <FaTrash />
                 </Button>
-                <img className="book-cover-small mx-5" src={product.productPic} alt="book selected" width="200rem" height="200rem"/>
-                {product.name}
+                <img className="book-cover-small mx-5" src={order.productSelected.productPic} alt="book selected" width="200rem" height="200rem"/>
+                {order.productSelected.name}
+                <p>Q.tà: {order.quantity}</p>
               </ListGroup.Item>
             ))
           ) : (
