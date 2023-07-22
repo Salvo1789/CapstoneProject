@@ -23,13 +23,13 @@ function NewrizonNavbar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="Smartphone" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/products/19bdcda1-3bbd-4e3f-89a7-e7cef3a1c2b7" id="nav-item">Prime X1</NavDropdown.Item>
+              <NavDropdown.Item href="/products/100ba2af-5325-42fb-8b53-c9996b9ee9b9" id="nav-item">Prime X1</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/products/450c81ab-70f9-4367-859e-17adc8fed615" id="nav-item">
+              <NavDropdown.Item href="/products/509620d3-563b-47fb-ae8a-b212d01bf4ba" id="nav-item">
                 Wonder S1
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/products/adf1c408-107b-47c7-a6ec-f649d49b84b1" id="nav-item">Joyful M1</NavDropdown.Item>
+              <NavDropdown.Item href="/products/9c9f12e4-8956-48c7-937b-f34cdadd2ce6" id="nav-item">Joyful M1</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Accessori" id="basic-nav-dropdown">
               <NavDropdown.Item href="/products/accessories/charger" id="nav-item">Alimentatori</NavDropdown.Item>

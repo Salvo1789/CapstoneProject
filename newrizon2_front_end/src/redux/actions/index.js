@@ -1,5 +1,6 @@
 export const ADD_PRODUCT = "ADD_PRODUCT";
 export const ADD_PRODUCTS = "ADD_PRODUCTS";
+export const SELECT_PRODUCT = "SELECT_PRODUCT";
 export const SET_ADMIN_NAME = "SET_ADMIN_NAME";
 export const SET_USER_NAME = "SET_USER_NAME";
 export const USER_LOGIN = "USER_LOGIN";
@@ -9,7 +10,7 @@ export const GET_USER_DATA = "GET_USER_DATA";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const EMPTY_CART = "EMPTY_CART";
-export const SELECT_PRODUCT = "SELECT_PRODUCT";
+export const CREATE_ORDER = "CREATE_ORDER";
 
 //PRODUCTS ACTIONS
 
@@ -139,22 +140,22 @@ export const logoutAction = () => ({ type: USER_LOGOUT });
 
 //CART ACTIONS
 
-export const addToCartAction = productSelected => {
+export const addToCartAction = product => {
   return (dispatch, getState) => {
     const currentState = getState();
 
     console.log(
       "CHECK",
-      currentState.cart.content.findIndex(product => product.id === productSelected.id)
+      currentState.cart.content.findIndex(order => order.product.id === product.id)
     );
-    const checkProductInCart = currentState.cart.content.findIndex(order => order.productSelected.id === productSelected.id);
+    const checkProductInCart = currentState.cart.content.findIndex(order => order.product.id === product.id);
     let quantity = 1;
     if (checkProductInCart === -1) {
-      const order = { quantity, productSelected };
+      const order = { quantity, product };
       dispatch({ type: ADD_TO_CART, payload: order });
     } else {
       quantity++;
-      const order = { quantity, productSelected };
+      const order = { quantity, product };
       dispatch({type: REMOVE_FROM_CART, payload: checkProductInCart})
       dispatch({ type: ADD_TO_CART, payload: order });
     }
@@ -164,3 +165,31 @@ export const addToCartAction = productSelected => {
 export const removeFromCartAction = index => ({ type: REMOVE_FROM_CART, payload: index });
 
 export const emptyCartAction = () => ({ type: EMPTY_CART });
+
+//ORDER ACTIONS
+
+export const createOrderAction = savedOrder => {
+  return async (dispatch, getState) => {
+    const token = getState().auth.token;
+    try {
+      let resp = await fetch("http://localhost:3000/orders", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body:JSON.stringify(savedOrder),
+      });
+      if (resp.ok) {
+        let data = await resp.json();
+        dispatch({ type: CREATE_ORDER, payload: data });
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      console.log("fetch loading finish");
+    }
+  };
+}

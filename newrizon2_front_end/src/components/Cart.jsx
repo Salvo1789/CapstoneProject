@@ -20,7 +20,7 @@ const Cart = () => {
         TOTAL:{" "}
           {userCurrent ? (
         <span className="display-6" style={{color: "orange"}}>
-          {cart.reduce((accumulator, currentValue) => accumulator + parseFloat(currentValue.productSelected.price*currentValue.quantity), 0).toFixed(2)}€
+          {cart.reduce((accumulator, currentValue) => accumulator + parseFloat(currentValue.product.price*currentValue.quantity), 0).toFixed(2)}€
           </span>
           ):(
             <span className="display-6" style={{color: "orange"}}>
@@ -42,8 +42,8 @@ const Cart = () => {
                 >
                   <FaTrash />
                 </Button>
-                <img className="book-cover-small mx-5" src={order.productSelected.productPic} alt="book selected" width="200rem" height="200rem"/>
-                {order.productSelected.name}
+                <img className="book-cover-small mx-5" src={order.product.productPic} alt="book selected" width="200rem" height="200rem"/>
+                {order.product.name}
                 <p>Q.tà: {order.quantity}</p>
               </ListGroup.Item>
             ))

@@ -10,6 +10,7 @@ const ProductSpecs = () => {
   const userCurrent = useSelector(state => state.auth.userData);
   const dispatch = useDispatch();
   const params = useParams();
+  const [cart, setCart] = useState(false);
 
 
   useEffect(() => {
@@ -45,6 +46,8 @@ const ProductSpecs = () => {
                     onClick={() => {
                       // dispatch({ type: ADD_TO_CART, payload: bookSelected });
                       dispatch(addToCartAction(product));
+                      setCart(true);
+
                       // sto dispatchando un'action creator
                       // è la stessa cosa che dispatchare l'action
                       // perchè l'action creator è una funzione che torna l'action
@@ -54,7 +57,9 @@ const ProductSpecs = () => {
                   </Button>
                 ) : (
                   <Alert style={{ border: "solid", borderColor: "orange", backgroundColor: "black", color: "orange" }}>Loggati prima di procedere</Alert>
-                )}
+                )
+                }
+                
             </Card>
           </Col>
           <Col md={6}>
