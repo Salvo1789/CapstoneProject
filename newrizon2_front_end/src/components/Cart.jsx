@@ -60,7 +60,7 @@ const Cart = () => {
       </Col>
       <Col sm={12} className="mb-5">
       {userCurrent ?  (
-      checkout  ? (
+      checkout && cart.length>0  ? (
             <PayPalCheckout />
           ) : (
             <div className="Product">
