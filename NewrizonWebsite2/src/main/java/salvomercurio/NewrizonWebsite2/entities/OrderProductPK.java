@@ -1,0 +1,72 @@
+package salvomercurio.NewrizonWebsite2.entities;
+
+import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
+
+@Embeddable
+@Getter
+@Setter
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "order")
+public class OrderProductPK implements Serializable {
+
+	@JsonBackReference
+	@ManyToOne(optional = false, fetch = FetchType.EAGER)
+	@JoinColumn(name = "order_id")
+	private Order order;
+
+	@ManyToOne(optional = false, fetch = FetchType.EAGER)
+	@JoinColumn(name = "product_id")
+	private Product product;
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+
+		result = prime * result + ((order.getId() == null) ? 0 : order.getId().hashCode());
+		result = prime * result + ((product.getId() == null) ? 0 : product.getId().hashCode());
+
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		OrderProductPK other = (OrderProductPK) obj;
+		if (order == null) {
+			if (other.order != null) {
+				return false;
+			}
+		} else if (!order.equals(other.order)) {
+			return false;
+		}
+
+		if (product == null) {
+			if (other.product != null) {
+				return false;
+			}
+		} else if (!product.equals(other.product)) {
+			return false;
+		}
+
+		return true;
+	}
+}
