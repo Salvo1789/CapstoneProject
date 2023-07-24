@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Container, Row, Col, Card, ListGroup, Alert, Button } from 'react-bootstrap';
-import { useEffect } from "react";
+import { Container, Row, Col, Card, ListGroup, Alert, Button, Modal } from 'react-bootstrap';
+import { useEffect, useState } from "react";
 import { getAllProductsAction } from '../redux/actions';
 import { addToCartAction } from "../redux/actions";
 
@@ -11,6 +11,10 @@ const AccessoriesList = () => {
   const params = useParams();
 
   const userCurrent = useSelector(state => state.auth.userData)
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     dispatch(getAllProductsAction(params.type));
@@ -24,6 +28,11 @@ const AccessoriesList = () => {
   return(
     
       <Container fluid className="vh-100 m-3">
+        <Modal show={show} onHide={handleClose} >
+        <Modal.Header closeButton style={{ background: "linear-gradient(orange, yellow)", border: "solid", borderRadius: "5px" }}>
+          <Modal.Title>Prodotto aggiunto</Modal.Title>
+        </Modal.Header>
+      </Modal>
         <Row>
 
     {products && products.content.map( (prod) => (
@@ -35,7 +44,7 @@ const AccessoriesList = () => {
                   {prod.type === "charger" && (
                     <>
                   <ListGroup.Item style={{ backgroundColor: "black", color: "orange", border: "0" }}><span className="text-light">Output: </span>{prod.output}</ListGroup.Item>
-                  <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Tecnologia RapidRecharge: </span>{prod.rapidRecharge}</ListGroup.Item>
+                  <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Tecnologia RapidRecharge: </span>{prod.rapidRecharge ? ("Compatibile"):("Non compatibile")}</ListGroup.Item>
                   <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Potenza: </span>{prod.power}</ListGroup.Item>
                   <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Colore: </span>{prod.chargerColor}</ListGroup.Item>
                   <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Prezzo: </span><strong>{prod.price} €</strong></ListGroup.Item>
@@ -56,6 +65,7 @@ const AccessoriesList = () => {
                     onClick={() => {
                       // dispatch({ type: ADD_TO_CART, payload: bookSelected });
                       dispatch(addToCartAction(prod));
+                      handleShow();
                       // sto dispatchando un'action creator
                       // è la stessa cosa che dispatchare l'action
                       // perchè l'action creator è una funzione che torna l'action

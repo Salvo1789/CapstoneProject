@@ -38,7 +38,6 @@ function NewrizonNavbar() {
                 Cover
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#home">Supporto</Nav.Link>
             <Nav.Link href="/cart">
             <FaShoppingCart style={{color: "orange"}}/>
             </Nav.Link>

@@ -8,6 +8,7 @@ import {
   ListGroup,
   Button,
   Alert,
+  Modal
 } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { getProductAction } from "../redux/actions";
@@ -20,6 +21,9 @@ const ProductSpecs = () => {
   const params = useParams();
   const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   useEffect(() => {
     dispatch(getProductAction(params.productId));
   }, []);
@@ -27,7 +31,11 @@ const ProductSpecs = () => {
   return (
     <>
       <Container>
-       
+      <Modal show={show} onHide={handleClose} >
+        <Modal.Header closeButton style={{ background: "linear-gradient(orange, yellow)", border: "solid", borderRadius: "5px" }}>
+          <Modal.Title>Prodotto aggiunto</Modal.Title>
+        </Modal.Header>
+      </Modal>
         <Row>
           <Col md={6}>
             <Card
@@ -99,7 +107,7 @@ const ProductSpecs = () => {
                   }}
                 >
                   <span className="text-light">Tecnologia RapidRecharge: </span>
-                  {product.rapidRecharge}
+                  {product.rapidRecharge ? ("Compatibile"):("Non compatibile")}
                 </ListGroup.Item>
                 <ListGroup.Item
                   style={{
@@ -164,6 +172,8 @@ const ProductSpecs = () => {
               </ListGroup>
               {userCurrent ? (
                 <Button
+                
+
                   style={{
                     background: "linear-gradient(orange, yellow)",
                     color: "black",
@@ -173,7 +183,7 @@ const ProductSpecs = () => {
                   onClick={() => {
                     // dispatch({ type: ADD_TO_CART, payload: bookSelected });
                     dispatch(addToCartAction(product));
-                    setShow(true);
+                    handleShow();
 
                     // sto dispatchando un'action creator
                     // è la stessa cosa che dispatchare l'action
@@ -195,7 +205,6 @@ const ProductSpecs = () => {
                   Loggati prima di procedere
                 </Alert>
               )}
-              
             </Card>
           </Col>
           <Col md={6}>
