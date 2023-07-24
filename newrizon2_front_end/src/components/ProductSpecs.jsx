@@ -30,7 +30,7 @@ const ProductSpecs = () => {
 
   return (
     <>
-      <Container>
+      <Container className="pb-5">
       <Modal show={show} onHide={handleClose} >
         <Modal.Header closeButton style={{ background: "linear-gradient(orange, yellow)", border: "solid", borderRadius: "5px" }}>
           <Modal.Title>Prodotto aggiunto</Modal.Title>
@@ -158,6 +158,16 @@ const ProductSpecs = () => {
                 >
                   <span className="text-light">Sistema operativo: </span>
                   {product.os}
+                </ListGroup.Item>
+                <ListGroup.Item
+                  style={{
+                    backgroundColor: "black",
+                    color: "orange",
+                    border: "0",
+                  }}
+                >
+                  <span className="text-light">Colore: </span>
+                  <strong>{product.color}</strong>
                 </ListGroup.Item>
                 <ListGroup.Item
                   style={{

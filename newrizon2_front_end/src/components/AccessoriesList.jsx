@@ -38,7 +38,7 @@ const AccessoriesList = () => {
     {products && products.content.map( (prod) => (
       <>
             <Col md={2}>
-              <Card style={{ border: "solid", borderColor: "orange", backgroundColor: "black" }} key={prod.id}>
+              <Card style={{ border: "solid", borderColor: "orange", backgroundColor: "black", marginBottom: "2rem"}} key={prod.id}>
                 <Card.Header style={{ backgroundColor: "black", color: "white", border: "0" }}>{prod.name}</Card.Header>
                 <ListGroup variant="flush">
                   {prod.type === "charger" && (
