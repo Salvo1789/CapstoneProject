@@ -19,10 +19,10 @@ function ProfilePage(){
 
   return (
       
-      <Container className="py-5 vh-100">
+      <Container className="py-5 vh-100" >
         <Row className="justify-content-center align-items-center h-100">
           <Col lg="6" className="mb-4 mb-lg-0">
-            <Card className="mb-3" style={{ borderRadius: '.5rem' }}>
+            <Card className="mb-3" style={{ borderRadius: '.5rem'}}>
               <Row className="g-0">
                 <Col md="4" className="gradient-custom text-center text-white"
                   style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>

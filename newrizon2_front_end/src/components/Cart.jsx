@@ -14,7 +14,7 @@ const Cart = () => {
   // cart sarà l'array contenuto in state.cart.content
 
   return (
-    <Container className="vh-100" fluid>
+    <Container fluid className="min-vh-100">
     <Row>
       <Col sm={12} className="font-weight-bold mb-5 ms-3">
         TOTAL:{" "}
@@ -32,7 +32,7 @@ const Cart = () => {
         <ListGroup variant="flush">
           {cart.length > 0 && userCurrent ? (
             cart.map((order, i) => (
-              <ListGroup.Item key={i}>
+              <ListGroup.Item key={i} style={{ border: "solid", borderColor: "orange", backgroundColor: "black", marginBottom: "2rem"}}>
                 <Button
                   variant="danger"
                   onClick={() => {
@@ -43,7 +43,7 @@ const Cart = () => {
                   <FaTrash />
                 </Button>
                 <img className="book-cover-small mx-5" src={order.product.productPic} alt="book selected" width="200rem" height="200rem"/>
-                {order.product.name}
+                <span style={{color: "orange", fontWeight: "bold"}}>{order.product.name}</span>
                 <p>Q.tà: {order.quantity}</p>
               </ListGroup.Item>
             ))

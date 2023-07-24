@@ -33,18 +33,17 @@ function PayPalCheckout(){
           });
         },
         onApprove: async (data, actions) => {
-              const userId = userCurrent.id;
-              cart.map(orderProd =>
-                productOrders.push(orderProd)
-              );
-              const savedOrder = {productOrders, userId}
-              console.log(savedOrder);
-              dispatch(createOrderAction(savedOrder));
-                const order = await actions.order.capture();
-                console.log("success", order);
-                // dispatch(emptyCartAction());
-                setTransactionStatus("success");
-                dispatch(emptyCartAction());
+          const order = await actions.order.capture();
+          console.log("success", order);
+          const userId = userCurrent.id;
+          cart.map(orderProd =>
+            productOrders.push(orderProd)
+            );
+            const savedOrder = {productOrders, userId}
+            console.log(savedOrder);
+            dispatch(createOrderAction(savedOrder));
+            setTransactionStatus("success");
+            dispatch(emptyCartAction());
               },
               onError: (err) => {
                 console.log(err);
