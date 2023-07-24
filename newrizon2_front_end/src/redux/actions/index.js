@@ -149,11 +149,14 @@ export const addToCartAction = product => {
       currentState.cart.content.findIndex(order => order.product.id === product.id)
     );
     const checkProductInCart = currentState.cart.content.findIndex(order => order.product.id === product.id);
-    let quantity = 1;
+    
+    
     if (checkProductInCart === -1) {
+      let quantity = 1;
       const order = { quantity, product };
       dispatch({ type: ADD_TO_CART, payload: order });
     } else {
+      let quantity = currentState.cart.content[checkProductInCart].quantity;
       quantity++;
       const order = { quantity, product };
       dispatch({type: REMOVE_FROM_CART, payload: checkProductInCart})
