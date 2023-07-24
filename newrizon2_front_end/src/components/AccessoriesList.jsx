@@ -27,7 +27,7 @@ const AccessoriesList = () => {
   
   return(
     
-      <Container fluid className="vh-60 m-3">
+      <Container fluid className="min-vh-100">
         <Modal show={show} onHide={handleClose} >
         <Modal.Header closeButton style={{ background: "linear-gradient(orange, yellow)", border: "solid", borderRadius: "5px" }}>
           <Modal.Title>Prodotto aggiunto</Modal.Title>
@@ -37,7 +37,7 @@ const AccessoriesList = () => {
 
     {products && products.content.map( (prod) => (
       <>
-            <Col md={2}>
+            <Col md={2} className="px-auto">
               <Card style={{ border: "solid", borderColor: "orange", backgroundColor: "black", marginBottom: "2rem"}} key={prod.id}>
                 <Card.Header style={{ backgroundColor: "black", color: "white", border: "0" }}>{prod.name}</Card.Header>
                 <ListGroup variant="flush">
@@ -78,9 +78,9 @@ const AccessoriesList = () => {
                 )}
               </Card>
             </Col>
-            <Col md={2}>
-              <Card style={{ border: "0", height: "15rem", width: "10rem"}}>
-                <Card.Img src={prod.productPic} />
+            <Col md={2} style={{display: "flex", justifyContent:"space-around", alignItems: "center" }}>
+              <Card style={{ border: "0", height: "15rem", width: "10rem", background: "transparent"}}>
+                <Card.Img src={prod.productPic}/>
               </Card>
             </Col>
             </>
