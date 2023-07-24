@@ -27,7 +27,7 @@ const AccessoriesList = () => {
   
   return(
     
-      <Container fluid className="vh-100 m-3">
+      <Container fluid className="vh-60 m-3">
         <Modal show={show} onHide={handleClose} >
         <Modal.Header closeButton style={{ background: "linear-gradient(orange, yellow)", border: "solid", borderRadius: "5px" }}>
           <Modal.Title>Prodotto aggiunto</Modal.Title>
