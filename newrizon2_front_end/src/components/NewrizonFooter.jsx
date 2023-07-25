@@ -21,9 +21,7 @@ const Footer = () => {
         <Row>
           <Column>
             <Heading>About Us</Heading>
-            <FooterLink href="#">Aim</FooterLink>
-            <FooterLink href="#">Vision</FooterLink>
-            <FooterLink href="#">Testimonials</FooterLink>
+            <FooterLink href="https://github.com/Salvo1789">Github Profile</FooterLink>
           </Column>
           <Column>
             <Heading>Services</Heading>
