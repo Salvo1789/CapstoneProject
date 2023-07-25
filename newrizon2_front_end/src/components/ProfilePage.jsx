@@ -54,7 +54,7 @@ function ProfilePage(){
                     </Col>
                     </Row>
                     <Button
-                  style={{ background: "linear-gradient(orange, yellow)", border: "solid", borderRadius: "5px" }}
+                  style={{ background: "linear-gradient(orange, yellow)", border: "solid", borderRadius: "5px", color: "black" }}
                     onClick={() => {
                       dispatch(emptyCartAction());
                       dispatch(logoutAction());

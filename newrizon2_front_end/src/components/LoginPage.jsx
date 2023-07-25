@@ -66,11 +66,11 @@ const LoginPage = () => {
         <br></br>
         <br></br>
   
-        <Button className=" bg-transparent p-2 mb-2 border border-dark text-dark" type="submit">
+        <Button style={{ background: "linear-gradient(orange, yellow)"}} className=" bg-transparent p-2 mb-2 border border-dark text-dark" type="submit">
           LOG IN
         </Button>
         <Link to="/register">
-          <Button className=" bg-transparent p-2 mb-2 border border-dark text-dark">Register</Button>
+          <Button style={{ background: "linear-gradient(orange, yellow)"}} className=" bg-transparent p-2 mb-2 border border-dark text-dark">Register</Button>
         </Link>
       </Form>
       </Container>

@@ -23,7 +23,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <Container className="m-auto" style={{ background: "linear-gradient(orange, yellow)" }}>
+    <Container className="m-auto pb-3" style={{ background: "linear-gradient(orange, yellow)" }}>
     <Form onSubmit={handleSubmit}>
       <h2>Register</h2>
       <Form.Group controlId="formName">
@@ -86,7 +86,7 @@ const RegisterPage = () => {
       </Form.Group>
       <br></br>
       <br></br>
-      <Button type="submit" className=" bg-transparent text-dark border border-dark">
+      <Button type="submit" style={{ background: "linear-gradient(orange, yellow)"}} className=" bg-transparent text-dark border border-dark">
         REGISTER
       </Button>
     </Form>
