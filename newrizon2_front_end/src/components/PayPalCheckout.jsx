@@ -43,7 +43,7 @@ function PayPalCheckout(){
             const savedOrder = {productOrders, userId}
             console.log(savedOrder);
             dispatch(createOrderAction(savedOrder));
-            dispatch(emptyCartAction());
+            // dispatch(emptyCartAction());
               },
               onError: (err) => {
                 console.log(err);
