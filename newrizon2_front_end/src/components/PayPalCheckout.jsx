@@ -35,6 +35,7 @@ function PayPalCheckout(){
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
           console.log("success", order);
+          setTransactionStatus("success");
           const userId = userCurrent.id;
           cart.map(orderProd =>
             productOrders.push(orderProd)
@@ -42,7 +43,6 @@ function PayPalCheckout(){
             const savedOrder = {productOrders, userId}
             console.log(savedOrder);
             dispatch(createOrderAction(savedOrder));
-            setTransactionStatus("success");
             dispatch(emptyCartAction());
               },
               onError: (err) => {

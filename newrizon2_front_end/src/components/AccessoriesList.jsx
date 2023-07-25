@@ -53,7 +53,7 @@ const AccessoriesList = () => {
                   {prod.type === "cover" && (
                     <>
                   <ListGroup.Item style={{ backgroundColor: "black", color: "orange", border: "0" }}><span className="text-light">Materiale: </span>{prod.material}</ListGroup.Item>
-                  <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Resistente all'acqua: </span>{prod.waterproof}</ListGroup.Item>
+                  <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Resistente all'acqua: </span>{prod.waterproof ? ("Certificazione IP68"):("N/A")}</ListGroup.Item>
                   <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Colore: </span>{prod.coverColor}</ListGroup.Item>
                   <ListGroup.Item style={{ backgroundColor: "black", color: "orange",border: "0" }}><span className="text-light">Prezzo: </span><strong>{prod.price} €</strong></ListGroup.Item>
                   </>
