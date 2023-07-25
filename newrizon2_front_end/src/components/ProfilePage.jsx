@@ -40,10 +40,7 @@ function ProfilePage(){
                         <h6>Email</h6>
                         <Card.Text className="text-muted">{userCurrent.email}</Card.Text>
                       </Col>
-                      <Col size="6" className="mb-3">
-                        <h6>Indirizzo</h6>
-                        <Card.Text className="text-muted">{userCurrent.address}</Card.Text>
-                      </Col>
+                      
                     </Row>
                     <hr className="mt-0 mb-4" />
                     <Row className="pt-1">
