@@ -32,7 +32,7 @@ const Cart = () => {
         <ListGroup variant="flush">
           {cart.length > 0 && userCurrent ? (
             cart.map((order, i) => (
-              <ListGroup.Item key={i} style={{ border: "solid", borderColor: "orange", backgroundColor: "black", marginBottom: "2rem"}}>
+              <ListGroup.Item key={i} style={{ width: "50%", border: "solid", borderColor: "orange", backgroundColor: "black", marginBottom: "2rem"}}>
                 <Button
                   variant="danger"
                   onClick={() => {
@@ -48,7 +48,7 @@ const Cart = () => {
               </ListGroup.Item>
             ))
           ) : (
-            <ListGroup.Item className="lead">
+            <ListGroup.Item className="lead w-50">
               <span className="text-primary opacity-50 fs-1 me-2">
                 {" "}
                 <FaShoppingCart style={{color: "orange"}} />
@@ -61,7 +61,7 @@ const Cart = () => {
       <Col sm={12} className="mb-5">
       {userCurrent ?  (
       checkout && cart.length>0  ? (
-            <PayPalCheckout />
+            <PayPalCheckout  />
           ) : (
             <div className="Product">
               <button
