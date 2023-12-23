@@ -16,4 +16,4 @@ Technical Website Specs
 * Front-end: HTML5, CSS3, Javascript, React, Bootstrap, Redux
 * Back-end: Java, Spring Boot
 * DBMS: PostgreSQL
- 
+* Testing API: Postman
